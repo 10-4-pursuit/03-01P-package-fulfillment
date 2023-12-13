@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import PackageForm from './PackageForm/PackageForm';
+import PackageList from './Packagelist/PackageList';
 
 function App() {
   const logData = (data) => {
@@ -17,11 +18,17 @@ function App() {
   }
 ]);
 
+function deletePackage(id) {
+  const updatePackages = packages.filter((pkg) => pkg.id !== id);
+  setPackages(updatePackages);
+};
+
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="Title">Package Management App</h1>
         <PackageForm addPackage={logData}/>
+        <PackageList packages={packages} deletePackage={deletePackage} />
       </header>
     </div>
   );

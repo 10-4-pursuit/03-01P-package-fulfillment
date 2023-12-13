@@ -1,8 +1,8 @@
 import React from "react";
 
-function packagelist() {
+function PackageList() {
     
 }
 
 
-export default packagelist;
+export default PackageList;
