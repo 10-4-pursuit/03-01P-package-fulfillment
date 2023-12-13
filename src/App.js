@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import PackageForm from './PackageForm/PackageForm';
-import PackageList from './Packagelist/PackageList';
+import PackageList from './PackageList/PackageList';
 
 function App() {
   const logData = (data) => {

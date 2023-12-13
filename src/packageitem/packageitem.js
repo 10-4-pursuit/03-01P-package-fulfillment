@@ -5,9 +5,10 @@ function PackageItem({ packageSelected, deletePackage }) {
 
     return (
         <div>
-            <h2>{name}</h2>
+            <h3>{name}</h3>
             <p>Description: {description}</p>
             <p>Category: {category}</p>
+            <p>ID: {id} </p>
             <p>Price: {price}</p>
             <button onClick={() => deletePackage(id) }>Delete</button>
         </div>
