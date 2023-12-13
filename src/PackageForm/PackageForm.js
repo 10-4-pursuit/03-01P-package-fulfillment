@@ -1,7 +1,7 @@
 import React from "react";
 import { faker } from "@faker-js/faker";
 
-function PackageForm({ addPackage }) {
+function PackageForm({ addPackage, editPackage, id }) {
     const [packageData, setPackageData] = React.useState({
         name: "",
         description: "",
@@ -11,17 +11,29 @@ function PackageForm({ addPackage }) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        const id = faker.string.uuid(5);
+        const nextId = id || faker.string.uuid(5);
 
-        addPackage({ id, ...packageData });
+        if (addPackage) {
+            addPackage({ id: nextId, ...packageData });
 
-        setPackageData({
-            name: "",
-            description: "",
-            category: "",
-            price: "",
-        });
+            setPackageData({
+                name: "",
+                description: "",
+                category: "",
+                price: "",
+            });
 
+        };
+        if (editPackage) {
+            editPackage({ id: nextId, ...packageData });
+
+            setPackageData({
+                name: "",
+                description: "",
+                category: "",
+                price: "",
+            });
+        };
     };
 
     function handleChange(event) {

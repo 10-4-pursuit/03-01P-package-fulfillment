@@ -15,20 +15,34 @@ function App() {
       id: "42abb024-4139-4421-b4bd-e864b5595b5",
       name: "DJ Khalid Kicks",
       price: "$150.00"
-  }
-]);
+    }
+  ]);
 
-function deletePackage(id) {
-  const updatePackages = packages.filter((pkg) => pkg.id !== id);
-  setPackages(updatePackages);
-};
+  function addPackage(packageData) {
+    const newEntries = [
+      ...packages, packageData];
+    setPackages(newEntries);
+  };
+
+  function editPackage(packageData) {
+    const editedEntries = [
+      ...packages];
+      const editPkg = editedEntries.findIndex((pkg) => pkg.id === packageData.id);
+      editedEntries[editPkg] = packageData;
+    setPackages(editedEntries);
+  };
+
+  function deletePackage(id) {
+    const updatePackages = packages.filter((pkg) => pkg.id !== id);
+    setPackages(updatePackages);
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="Title">Package Management App</h1>
-        <PackageForm addPackage={logData}/>
-        <PackageList packages={packages} deletePackage={deletePackage} />
+        <PackageForm addPackage={addPackage} />
+        <PackageList packages={packages} editPackage={editPackage} deletePackage={deletePackage} />
       </header>
     </div>
   );
