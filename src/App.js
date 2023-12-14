@@ -4,6 +4,7 @@ import PackageList from './components/PackageList'; // imports PackageList
 import { v4 as uuidv4 } from 'uuid'; // imports uuid id generator
 import './App.css'; // imports App.css
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 
@@ -47,7 +48,7 @@ const deletePackage = (id) => {
       <PackageList packages={packages} 
        updatePackage={updatePackage}
         deletePackage={deletePackage} />
-     
+      <Footer />
     </div>
 
 
