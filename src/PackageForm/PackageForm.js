@@ -1,21 +1,31 @@
+// Import necessary modules in this case from faker and react
 import React from "react";
 import { faker } from "@faker-js/faker";
+import './PackageForm.css'
 
-function PackageForm({ addPackage, editPackage, id }) {
+// Function PackageForm with props params opened up {addPackage, editPackage, id}
+function PackageForm({ addPackage, editPackage, packageSelected, id }) {
+    // useState to manage form inputs
     const [packageData, setPackageData] = React.useState({
-        name: "",
-        description: "",
-        category: "",
-        price: "",
+        name: packageSelected?.name || "", 
+        description: packageSelected?.description || "",
+        category: packageSelected?.category || "",
+        price: packageSelected?.price || "",
     });
 
+    // Function to handle form submission
     function handleSubmit(event) {
+        // Prevent the default form submission behavior
         event.preventDefault();
+        // Generate a unique ID using faker if not provided
         const nextId = id || faker.string.uuid(5);
 
+        // Check if addPackage prop is provided
         if (addPackage) {
+            // Call addPackage with the new package data
             addPackage({ id: nextId, ...packageData });
 
+            // Clear the form inputs
             setPackageData({
                 name: "",
                 description: "",
@@ -24,9 +34,13 @@ function PackageForm({ addPackage, editPackage, id }) {
             });
 
         };
+
+        // Check if editPackage prop is provided
         if (editPackage) {
+            // Call editPackage with the updated package data
             editPackage({ id: nextId, ...packageData });
 
+            // Clear the form inputs
             setPackageData({
                 name: "",
                 description: "",
@@ -36,16 +50,23 @@ function PackageForm({ addPackage, editPackage, id }) {
         };
     };
 
+    // Function to handle input changes
     function handleChange(event) {
+        // Extract the name and value from the input event
         const { name, value } = event.target;
+        // Update the corresponding field in packageData state
         setPackageData({ ...packageData, [name]: value });
     };
 
+    // JSX structure for the form
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Create New Package</h2>
+            { addPackage ? (<h2>Create New Package</h2>) : (<h2>Edit Package</h2>)}
+            {/* Input fields for package details */}
             <label>
-                Name:
+                <span>
+                    Name:
+                </span>
                 <input
                     type="text"
                     name="name"
@@ -54,7 +75,9 @@ function PackageForm({ addPackage, editPackage, id }) {
                     required />
             </label>
             <label>
-                Description:
+                <span>
+                    Description:
+                </span>
                 <input
                     type="text"
                     name="description"
@@ -64,7 +87,9 @@ function PackageForm({ addPackage, editPackage, id }) {
                 />
             </label>
             <label>
-                Category:
+                <span>
+                    Category:
+                </span>
                 <input
                     type="text"
                     name="category"
@@ -74,7 +99,9 @@ function PackageForm({ addPackage, editPackage, id }) {
                 />
             </label>
             <label>
-                Price:
+                <span>
+                    Price:
+                </span>
                 <input
                     type="text"
                     name="price"
@@ -83,9 +110,11 @@ function PackageForm({ addPackage, editPackage, id }) {
                     required
                 />
             </label>
+            {/* Button to submit the form */}
             <button type="submit">Add Package</button>
         </form>
     )
 };
 
+// Export the PackageForm component
 export default PackageForm;

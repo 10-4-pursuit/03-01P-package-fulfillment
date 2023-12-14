@@ -1,12 +1,10 @@
+// Import necessary modules in this case from react using {useState}, ./App.css, PackageForm and PackageList
 import { useState } from 'react';
 import './App.css';
 import PackageForm from './PackageForm/PackageForm';
 import PackageList from './PackageList/PackageList';
 
 function App() {
-  const logData = (data) => {
-    console.log(data)
-  };
 
   const [packages, setPackages] = useState([
     {
