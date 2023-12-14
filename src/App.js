@@ -3,6 +3,8 @@ import PackageForm from './components/PackageForm'; // imports PackageForm
 import PackageList from './components/PackageList'; // imports PackageList
 import { v4 as uuidv4 } from 'uuid'; // imports uuid id generator
 import './App.css'; // imports App.css
+import Header from './components/Header';
+
 
 
 // fuction for adding a package
@@ -40,12 +42,15 @@ const deletePackage = (id) => {
   return (
     <div className="container">
       { /* calls the PackageForm components addPackage updatePackage and deletePackage */}
-      <h1>Package Tracker</h1>
+      <Header />
       <PackageForm addPackage={addPackage} /> 
       <PackageList packages={packages} 
        updatePackage={updatePackage}
         deletePackage={deletePackage} />
+     
     </div>
+
+
   );
 }
 

@@ -4,6 +4,18 @@ body {
   color: #333;
   margin: 0;
   padding: 20px;
+  
+}
+
+
+
+.bg{
+background-image: url(./imgs/fulfillment.png);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh;
+
 }
 
 h1 {
