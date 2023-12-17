@@ -1,5 +1,15 @@
 form {
+    width: 40%;
+}
+
+.add {
     background-color:navy;
+    padding: 0px 40px 30px;
+    border-radius: 10px;
+}
+
+.edit {
+    background-color: orange;
     padding: 0px 40px 30px;
     border-radius: 10px;
 }
@@ -13,7 +23,7 @@ label span {
     flex: 1
 }
 
-button {
+.submit-button {
     margin-top: 30px;
     background-color: rgb(183, 112, 245);
     border-radius: 10px;

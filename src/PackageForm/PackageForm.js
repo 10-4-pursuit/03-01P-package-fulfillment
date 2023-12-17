@@ -60,7 +60,7 @@ function PackageForm({ addPackage, editPackage, packageSelected, id }) {
 
     // JSX structure for the form
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={`form-container ${addPackage ? "add" : "edit"}`} onSubmit={handleSubmit}>
             { addPackage ? (<h2>Create New Package</h2>) : (<h2>Edit Package</h2>)}
             {/* Input fields for package details */}
             <label>
@@ -111,7 +111,7 @@ function PackageForm({ addPackage, editPackage, packageSelected, id }) {
                 />
             </label>
             {/* Button to submit the form */}
-            <button type="submit">Add Package</button>
+            <button className="submit-button" type="submit">Add Package</button>
         </form>
     )
 };

@@ -1,6 +1,7 @@
 // Import necessary modules in this case from react and PackageForm
 import React from "react";
 import PackageForm from '../PackageForm/PackageForm';
+import './PackageItem.css'
 
 // Function PackageItem with props params opened up {packageSelected, editPackage, deletePackage}
 function PackageItem({ packageSelected, editPackage, deletePackage }) {
@@ -34,9 +35,9 @@ function PackageItem({ packageSelected, editPackage, deletePackage }) {
             <p>ID: {id} </p>
             <p>Price: {price}</p>
             {/* Button to toggle edit mode */}
-            <button onClick={() => setEditMode(!editMode)}>Edit Package</button>
+            <button className="edit-button" onClick={() => setEditMode(!editMode)}>Edit Package</button>
             {/* Button to delete the package */}
-            <button onClick={() => deletePackage(id) }>Delete</button>
+            <button className="delete-button" onClick={() => deletePackage(id) }>Delete Package</button>
         </div>
     );
 };

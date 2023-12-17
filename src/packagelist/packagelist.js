@@ -6,7 +6,7 @@ import PackageItem from '../PackageItem/PackageItem'
 function PackageList({ packages, editPackage, deletePackage }) {
     return (
         // Render a list of packages
-        <div>
+        <>
             {/* Heading for the package list */}
             <h2>Package List</h2>
             {
@@ -19,7 +19,7 @@ function PackageList({ packages, editPackage, deletePackage }) {
                     ))
                 )
             }
-        </div>
+        </>
     );
 };
 
