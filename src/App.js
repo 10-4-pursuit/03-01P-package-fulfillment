@@ -1,8 +1,8 @@
 // Import necessary modules in this case from react using {useState}, ./App.css, PackageForm and PackageList
 import { useState } from 'react';
 import './App.css';
-import PackageForm from './PackageForm/PackageForm';
-import PackageList from './PackageList/PackageList';
+import PackageForm from './components/PackageForm/PackageForm';
+import PackageList from './components/PackageList/PackageList';
 
 // Functional component definition
 function App() {
