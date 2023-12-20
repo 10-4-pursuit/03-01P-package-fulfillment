@@ -2,9 +2,27 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 const PackageForm = () => {
-    const [PackageDetails, setPackageDetails] = useState({
-        
-    })
+    const [packageDetails, setPackageDetails] = useState({
+        id: nanoid(10),
+        name: '',
+        description: '',
+        category: '',
+        price:''
+    });
+
+    const handleInput = (event) => {
+        const field = event.target.getAttribute('name');
+        const formValues = {
+            ...packageDetails,
+            [field]: event.target.value
+        };
+        setPackageDetails(formValues);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Form Values: ', packageDetails)
+    }
     
     return (
         <div>
@@ -12,7 +30,7 @@ const PackageForm = () => {
             <form name='PackageForm'>
                 <label>
                     <span> 
-                        ID: {nanoid(10)}
+                        ID: 
                     </span> 
                     <hr />
                 </label>
@@ -21,10 +39,10 @@ const PackageForm = () => {
                     <span>
                         Package Name: 
                     </span>  
-                    <input 
-                    name='PackageName' 
-                    type='text'
-                    /> 
+                    <input onChange={handleInput} 
+                    name='name' 
+                    value={packageDetails.name} 
+                    type='text'/> 
                     <hr />
                 </label>
 
@@ -32,10 +50,10 @@ const PackageForm = () => {
                     <span>
                         Package Description:
                     </span>
-                    <input 
-                    name='PackageDescription' 
-                    type='text' 
-                    />
+                    <input onChange={handleInput} 
+                    name='description' 
+                    value={packageDetails.description} 
+                    type='text' />
                     <hr />
                 </label>
 
@@ -43,10 +61,10 @@ const PackageForm = () => {
                     <span>
                         Package Category:
                     </span>
-                        <input 
-                        name='PackageCategory' 
-                        type='text' 
-                        />
+                        <input onChange={handleInput} 
+                        name='category' 
+                        value={packageDetails.category} 
+                        type='text' />
                     <hr />
                 </label>
                 
@@ -54,14 +72,13 @@ const PackageForm = () => {
                     <span>
                         Package Price:  
                     </span>
-                    <input 
-                    name='PackagePrice' 
-                    type='number' 
-                    />
+                    <input onChange={handleInput} 
+                    name='price' 
+                    value={packageDetails.price} 
+                    type='number' />
                 </label>
-                
-                
             </form>
+            <button onClick={handleSubmit}>Submit</button>
         </div>
     )
 }
