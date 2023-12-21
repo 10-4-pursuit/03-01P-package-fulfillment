@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-const PackageForm = () => {
+const PackageForm = ({ setPackage }) => {
     const [packageDetails, setPackageDetails] = useState({
         id: nanoid(10),
         name: '',
@@ -21,7 +21,7 @@ const PackageForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Form Values: ', packageDetails)
+        setPackage(packageDetails);
     }
     
     return (
@@ -73,9 +73,9 @@ const PackageForm = () => {
                         Package Price:  
                     </span>
                     <input onChange={handleInput} 
+                    type='number'
                     name='price' 
-                    value={packageDetails.price} 
-                    type='number' />
+                    value={packageDetails.price} />
                 </label>
             </form>
             <button onClick={handleSubmit}>Submit</button>
