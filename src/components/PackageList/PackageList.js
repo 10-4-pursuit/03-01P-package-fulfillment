@@ -1,21 +1,19 @@
 import React from "react";
+import PackageItem from "../PackageItem/PackageItem";
 
+// Rendering each package item
 const PackageList = ({packages}) => {
  
+
+
+
  return (
     <div>
-        <br />
         List:
-        <hr />
-        id: {packages.id}
-        <hr />
-        name: {packages.name}
-        <hr />
-        description: {packages.description}
-        <hr />
-        category: {packages.category}
-        <hr />
-        price: {packages.price}
+        {
+            packages.map((eachPackage) => <PackageItem key={eachPackage.id} currentPackage={eachPackage} />)
+        }
+        
     </div>
  )
 }

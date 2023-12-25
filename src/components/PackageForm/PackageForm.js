@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-const PackageForm = ({ setPackage }) => {
+const PackageForm = ({ setPackage, packages }) => {
     const [packageDetails, setPackageDetails] = useState({
         id: nanoid(10),
-        name: '',
-        description: '',
-        category: '',
-        price:''
+        name: "",
+        description: "",
+        category: "",
+        price:""
     });
 
     const handleInput = (event) => {
@@ -21,7 +21,13 @@ const PackageForm = ({ setPackage }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setPackage(packageDetails);
+        setPackage([...packages, packageDetails]);
+        setPackageDetails({
+            id: nanoid(10),
+            name: "",
+            description: "",
+            category: "",
+            price:""});
     }
     
     return (
