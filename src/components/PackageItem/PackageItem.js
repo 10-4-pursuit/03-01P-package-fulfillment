@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../PackageItem/PackageItem.css'
 
 // 
 const PackageItem = ({ currentPackage, editPackage, deletePackage }) => {
@@ -23,20 +24,31 @@ const PackageItem = ({ currentPackage, editPackage, deletePackage }) => {
     }
 
     return (
-        <div>
+        <div className="item">
             <br />
+                <label>
+                    <span>ID: </span>{currentPackage.id}
+                </label>
             <hr />
-                id: {currentPackage.id}
+                <label>
+                    <span>Name: </span>{currentPackage.name}
+                </label>
             <hr />
-                name: {currentPackage.name}
+                <label>
+                    <span>Description: </span>{currentPackage.description}
+                </label>
             <hr />
-                description: {currentPackage.description}
+                <label>
+                    <span>Category: </span>{currentPackage.category}
+                </label>
             <hr />
-                category: {currentPackage.category}
-            <hr />
-                price: $ {currentPackage.price}
+                <label>
+                    <span>Price: </span>${currentPackage.price}
+                </label>
             <br />  
+        <div/>    
 
+        
             {
                 editMode ? (
                     <form name='editForm'>
@@ -96,11 +108,13 @@ const PackageItem = ({ currentPackage, editPackage, deletePackage }) => {
             </form>
                 ) : (
                     <div>
-                        <button onClick={() => setEditMode(true)} name="edit">
+                        <button name='edit' 
+                        onClick={() => setEditMode(true)} >
                             Edit
                         </button>
 
-                        <button onClick={() => deletePackage(currentPackage.id)} name="delete">
+                        <button name='delete' 
+                        onClick={() => deletePackage(currentPackage.id)} >
                             Delete
                         </button>
                     </div>

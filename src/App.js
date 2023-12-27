@@ -18,8 +18,6 @@ function App() {
     }
   ]);
 
-  
-
   const editPackage = (packageToUpdate) => {
     // copy of packages 
     const updatedPackage = [...packages];
@@ -33,7 +31,7 @@ function App() {
   }
 
   const deletePackage = (id) => {
-    //filters all packages that dont match the id
+    // filters all packages that dont match the id
     const delPackage = packages.filter((pkg) => pkg.id !== id);
     setPackage(delPackage);
   }
@@ -41,8 +39,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <PackageForm setPackage={setPackage} packages={packages} />
-        <PackageList packages={packages}  editPackage={editPackage} deletePackage={deletePackage} />
+        <div className="package-form-container">
+          <PackageForm setPackage={setPackage} packages={packages} />
+        </div>
+
+        <div className="package-list-container">
+          <PackageList packages={packages}  
+          editPackage={editPackage} 
+          deletePackage={deletePackage} />
+        </div>
       </header>
     </div>
   );

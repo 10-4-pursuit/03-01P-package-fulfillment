@@ -1,0 +1,77 @@
+
+
+div.item {
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  
+  
+  span {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+ 
+  form input[type="text"],
+  form input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+ 
+  form button[name="save"] {
+    background-color: #00ff4c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button[name="save"]:hover {
+    background-color: #00b321;
+  }
+
+
+
+button[name="delete"] {
+    background-color: #ff0000; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  button[name="delete"]:hover {
+    background-color: #8b0000; 
+  }
+
+
+  button[name='edit'] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

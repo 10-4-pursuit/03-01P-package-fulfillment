@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
+import '../PackageForm/PackageForm.css'
 
 const PackageForm = ({ setPackage, packages }) => {
     const [packageDetails, setPackageDetails] = useState({
@@ -32,15 +33,7 @@ const PackageForm = ({ setPackage, packages }) => {
     
     return (
         <div>
-            <h1>Hello</h1>
             <form name='PackageForm'>
-                <label>
-                    <span> 
-                        ID: 
-                    </span> 
-                    <hr />
-                </label>
-
                 <label>
                     <span>
                         Package Name: 
@@ -84,7 +77,7 @@ const PackageForm = ({ setPackage, packages }) => {
                     value={packageDetails.price} />
                 </label>
             </form>
-            <button onClick={handleSubmit}>Submit</button>
+            <button name='submit' onClick={handleSubmit}>Submit</button>
         </div>
     )
 }
