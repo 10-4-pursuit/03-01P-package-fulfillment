@@ -8,7 +8,7 @@ const PackageForm = ({ setPackage, packages }) => {
         description: "",
         category: "",
         price:""
-    });
+    }); 
 
     const handleInput = (event) => {
         const field = event.target.getAttribute('name');
