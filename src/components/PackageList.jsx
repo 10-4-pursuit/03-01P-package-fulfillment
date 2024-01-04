@@ -32,8 +32,11 @@ function PackageList(){
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
+            <th>Id</th>
               <th>Name</th>
               <th>Description</th>
+              <th>Category</th>
+              <th>Price</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -42,8 +45,11 @@ function PackageList(){
               ? Creatures.map((item) => {
                   return (
                     <tr>
+                        <td>{item.id}</td>
                       <td>{item.Name}</td>
                       <td>{item.Description}</td>
+                      <td>{item.Category}</td>
+                      <td>{item.Price}</td>
                       <td>
                         <Link to={"/edit"}>
                           <Button onClick={() => handleEdit(item.id, item.Name)}>EDIT</Button>

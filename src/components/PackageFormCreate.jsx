@@ -24,9 +24,11 @@ function PackageFormCreate(){
     let uniqueId = ids.slice(0,8);
 
     let a = name,
-    b = description;
+    b = description,
+    c = category,
+    d = price;
 
-    Creatures.push({id: uniqueId, Name: a, Description: b})
+    Creatures.push({id: uniqueId, Name: a, Description: b, Category: c, Price: d});
 
     history("/");
   }
@@ -50,8 +52,24 @@ function PackageFormCreate(){
             onChange={(e) => setDescription(e.target.value)}
           ></Form.Control>
         </Form.Group>
+        <Form.Group className="mb-3" controlId="formCategory">
+          <Form.Control
+            typeof="text"
+            placeholder="Enter Category"
+            required
+            onChange={(e) => setCategory(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formPrice">
+          <Form.Control
+            typeof="text"
+            placeholder="Enter Price"
+            required
+            onChange={(e) => setPrice(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
         <Button onClick={(e) => handleSubmit(e)} type="submit">
-          Button
+          Submit
         </Button>
       </Form>
     </div>
