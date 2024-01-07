@@ -2,10 +2,12 @@ import { Button, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Creatures from "./Creatures";
 import React, { Fragment } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+import PackageItem from "./PackageItem";
 
 function PackageList(){
     let history = useNavigate();
+    const { id } = useParams();
 
     const handleEdit = (id, name, description, category, price) => {
         localStorage.setItem("Name", name);
@@ -28,6 +30,7 @@ function PackageList(){
 
     return (
     <Fragment>
+
       <div style={{ margin: "10rem" }}>
         <Table striped bordered hover size="sm">
           <thead>
@@ -44,9 +47,12 @@ function PackageList(){
             {Creatures && Creatures.length > 0
               ? Creatures.map((item) => {
                   return (
-                    <tr>
+                    <tr key={item.id}>
                         <td>{item.id}</td>
+                        <Link to={`/item/${item.id}`}>
                       <td>{item.Name}</td>
+                      </Link>
+          
                       <td>{item.Description}</td>
                       <td>{item.Category}</td>
                       <td>{item.Price}</td>
@@ -70,6 +76,16 @@ function PackageList(){
           <Button size="lg">Create</Button>
         </Link>
       </div>
+      {/* <Routes>
+        <Route
+          path="/item/:id"
+          element={
+            <PackageItem
+            packageData={Creatures}
+          />
+          }
+        />
+      </Routes> */}
     </Fragment>
   );
 }

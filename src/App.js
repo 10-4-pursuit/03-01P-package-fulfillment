@@ -3,22 +3,20 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react
 import './App.css';
 
 function App() {
- 
-
- 
-
 
   return (
     <div className="App">
       <Router>
 <Routes>
 <Route path='/' element={<PackageList />} />
+<Route path="/item/:itemId" element={<PackageItem />} />
 <Route path='/create' element={<PackageFormCreate />} />
 <Route path='/edit' element={<PackageFormEdit />} />
-</Routes>
 
+
+
+</Routes>
       </Router>
-     
     </div>
   );
 }
