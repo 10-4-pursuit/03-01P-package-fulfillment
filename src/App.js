@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from 'react';
+import PackageForm from './PackageForm';
+import PackageList from './PackageList';
 
-function App() {
+const App = () => {
+  const [packages, setPackages] = useState([]);
+
+  const addPackage = (newPackage) => {
+    setPackages([...packages, newPackage]);
+  };
+
+  const updatePackage = (id, updatedPackage) => {
+    const updatedPackages = packages.map((pkg) =>
+      pkg.id === id ? updatedPackage : pkg
+    );
+    setPackages(updatedPackages);
+  };
+
+  const deletePackage = (id) => {
+    const updatedPackages = packages.filter((pkg) => pkg.id !== id);
+    setPackages(updatedPackages);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className= "App">
+      <h1>Package Management App</h1>
+      <PackageForm addPackage={addPackage} />
+      <PackageList
+        packages={packages}
+        updatePackage={updatePackage}
+        deletePackage={deletePackage}
+      />
     </div>
   );
-}
+};
 
 export default App;
