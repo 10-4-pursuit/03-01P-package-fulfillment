@@ -5,26 +5,26 @@ background-position: center;
 background-repeat: no-repeat;
 }
 
-.h1 {
+h1 {
 font-size: 3rem;
 text-align: center;
 margin: 0;
 padding: 20px;
-color: 333;
+color: #ffc300;
 text-transform: uppercase;
 letter-spacing: 1px;
 font-weight: bold;
-text-shadow: 2px 2px 4px #ccc;
+text-shadow: 2px 2px 4px #010101;
 }
 
-.h3 {
+h3 {
 font-size: 1.5rem;
 text-align: center;
 margin: 0;
 padding: 20px;
-color: #ccc;
+color: #ffc300;
 text-transform: uppercase;
 letter-spacing: 1px;
 font-weight: bold;
-text-shadow: 2px 2px 4px #ccc;
+text-shadow: 3px 3px 4px #010101;
 }
