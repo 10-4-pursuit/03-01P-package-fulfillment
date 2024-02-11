@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import "./PackgeItem.css";
+import React, { useEffect, useState } from "react";
+import './PackageItem.css'
 
 export default function PackageItem({ packageItem, updatePackage, deletePackage }) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedPackage, setEditedPackage] = useState({ ...packageItem });
 
-    const handleUpdate = (ev) => {
-        updatePackage(editedPackage);
+    const handleUpdate = () => {
+        updatePackage(packageItem.id, editedPackage);
         setIsEditing(false);
     };
 
     const handleChange = (ev) => {
+        ev.preventDefault();
         setEditedPackage({ ...editedPackage, [ev.target.name]: ev.target.value });
     };
 
@@ -27,7 +28,7 @@ export default function PackageItem({ packageItem, updatePackage, deletePackage 
                     />
 
                     <textarea
-                    name="Description"
+                    name="description"
                     value={editedPackage.description}
                     onChange={handleChange}
                     placeholder="Enter a package description"
@@ -58,15 +59,24 @@ export default function PackageItem({ packageItem, updatePackage, deletePackage 
                     <div className="package-category">{packageItem.category}</div>
                     <div className="package-price">{packageItem.price}</div>
                 </div>
-            )};
-            <div className="edit-delete-buttons">
-                {isEditing ? (
-                    <button className="save" onClick={handleUpdate}>Save</button>
-                ) : (
-                    <button className="edit" onClick={ () => setEditedPackage(true) }>Edit</button>
-                )}
-                <button className="delete" onClick={() => deletePackage(packageItem.id)}>Delete</button>
-            </div>
-        </div>
+            )}
+           <div className="edit-delete-buttons">
+        {isEditing ? (
+          <button className="save" onClick={() => handleUpdate()}>
+            Save
+          </button>
+          ) : (
+          <button className="edit" onClick={() => setIsEditing(true)}>
+            Edit
+          </button>
+        )}
+        <button
+          className="delete"
+          onClick={() => deletePackage(packageItem.id)}
+        >
+          Delete
+        </button>
+      </div>
+    </div>
     );
 };
