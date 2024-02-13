@@ -1,0 +1,9 @@
+.footer {
+    background-image: url("../imgs/warehouse-stock-photo.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #ccc;
+    padding: 20px;
+}
