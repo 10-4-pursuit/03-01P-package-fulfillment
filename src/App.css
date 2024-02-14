@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.package-form-container {
+  background-color: #333;
+  padding: 50px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.package-list-container {
+  background-color: #333;
+  padding: 50px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
