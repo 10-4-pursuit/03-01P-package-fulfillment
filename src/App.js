@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import PackageForm from './PackageForm';
+import PackageList from './PackageList';
 
 function App() {
+  const [packages, setPackages] = useState([]);
+
+  // Function to add a new package to the list
+  const addPackage = (newPackage) => {
+    setPackages([...packages, newPackage]);
+  };
+
+  // Function to delete a package from the list
+  const deletePackage = (id) => {
+    setPackages(packages.filter(pkg => pkg.id !== id));
+  };
+
+  // Function to update package details in the list
+  const updatePackage = (id, updatedPackage) => {
+    setPackages(packages.map(pkg => pkg.id === id ? updatedPackage : pkg));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Package Management System</h1>
+      <PackageForm addPackage={addPackage} />
+      <PackageList packages={packages} deletePackage={deletePackage} updatePackage={updatePackage} />
     </div>
   );
 }
