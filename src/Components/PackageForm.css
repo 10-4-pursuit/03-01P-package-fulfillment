@@ -1,0 +1,98 @@
+/* PackageForm.js */
+.package-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #d290ea;
+  border-radius: 30px;
+}
+
+.package-form input[type="text"], 
+input[type="textarea"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.package-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d3dde4;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.package-form button[type="submit"]:hover {
+  background-color: #682cb2;
+}
+
+/* PackageList.js */
+.package-list {
+  margin-top: 20px;
+}
+
+/* PackageItem.js */
+.package-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #dbcae5;
+  border-radius: 10px;
+}
+
+.package-detail {
+  margin-top: 10px;
+}
+
+.package-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.package-id {
+  color: #666;
+}
+
+.package-description {
+  margin-top: 5px;
+}
+
+.package-category {
+  font-style: italic;
+  color: #0099ff;
+}
+
+.package-price {
+  margin-top: 5px;
+  color: #0099ff;
+}
+
+.edit-delete-buttons button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-delete-buttons button.edit {
+  background-color: #0099ff;
+  color: #fff;
+}
+
+.edit-delete-buttons button.delete {
+  background-color: #ff3300;
+  color: #fff;
+}
+
+.edit-delete-buttons button:hover {
+  opacity: 0.8;
+}

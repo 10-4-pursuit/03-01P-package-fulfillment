@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import PackageForm from './Components/PackageForm';
+import PackageList from './Components/PackageList';
 
 function App() {
+  const [packages, setPackages] = useState([]);
+
+  const addPackage = (newPackage) => {
+    setPackages([...packages, newPackage]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Package Management System</h1>
+      <PackageForm addPackage={addPackage} />
+      <PackageList packages={packages} />
     </div>
   );
 }
